@@ -5,7 +5,8 @@ var countLetters = 0;
 var countWord = 0;
 fs.readFile('./lista_palavras_desordenada.txt', 'utf-8', function(err, data){
   if(err){
-    throw err;
+    console.log("Error:",err);
+    return;
   }
     var lines = data.split(/\r?\n/);
     lines.forEach(function(line){

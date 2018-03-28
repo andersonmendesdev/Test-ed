@@ -104,9 +104,10 @@ var searchTrue = function(treeNodo, value){
 
 var treeNodo = new nodo();
 fs.readFile('./numeros.txt', 'utf-8', function(err, data){
-    if(err){
-      throw err;
-    }
+  if(err){
+    console.log("Error:",err);
+    return;
+  }
     var lines = data.split(/\r?\n/);
     lines.forEach(function(line){
       var number = parseInt(line);
