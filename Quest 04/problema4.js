@@ -7,7 +7,7 @@ var flag;
 
 //-------------------------------------------------------
 //search matrixadjacency
-
+//// NOTE: Questao incompleta. Se tiver mais tempo termino:
 
 
 
@@ -23,7 +23,7 @@ fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
     var lines = data.split(/\r?\n/);
     lines.forEach(function(line){
        flag = line.replace( /\s/g,',');
-       listAdjacency.push(flag);     
+       listAdjacency.push(flag);
     })
     //console.log(listAdjacency);
 
