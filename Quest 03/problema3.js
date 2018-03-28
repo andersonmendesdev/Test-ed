@@ -49,16 +49,14 @@ var insertNode = function(treeNodo, value) {
 var inOrder = function(treeNodo){
   if(treeNodo){
     inOrder(treeNodo.left);
-    //console.log(treeNodo.getValue());
-    listGlobal1.push(treeNodo.getValue());
+    console.log(treeNodo.getValue());
     inOrder(treeNodo.right);
   }
 }
 //pre order
 var preOrder = function(treeNodo) {
   if(treeNodo){
-    //console.log(treeNodo.getValue());
-    listGlobal2.push(treeNodo.getValue());
+    console.log(treeNodo.getValue());
     preOrder(treeNodo.left);
     preOrder(treeNodo.right);
   }
@@ -68,8 +66,7 @@ var posOrder = function(treeNodo) {
   if(treeNodo){
     posOrder(treeNodo.left);
     posOrder(treeNodo.right);
-    listGlobal3.push(treeNodo.getValue());
-    //console.log(treeNodo.getValue());
+    console.log(treeNodo.getValue());
 
   }
 }
@@ -88,7 +85,7 @@ var searchTreeLTR = function(node) {
     return result;
 };
 
-//Search
+//Search simple
 var searchTrue = function(treeNodo, value){
     if(!treeNodo.value || treeNodo.value === value){
     valueGlobal = valueGlobal + treeNodo.value;
