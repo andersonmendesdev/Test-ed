@@ -8,7 +8,14 @@ var flag;
 //-------------------------------------------------------
 //search matrixadjacency
 
-fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
+
+
+
+
+
+
+
+fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
     if(err){
       throw err;
     }
@@ -16,8 +23,7 @@ fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
     lines.forEach(function(line){
        flag = line.replace( /\s/g,',');
        listAdjacency.push(flag);     
-
     })
-    console.log(listAdjacency);
+    //console.log(listAdjacency);
 
 })
