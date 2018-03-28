@@ -16,9 +16,10 @@ var flag;
 
 
 fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
-    if(err){
-      throw err;
-    }
+  if(err){
+    console.log("Error:",err);
+    return;
+  }
     var lines = data.split(/\r?\n/);
     lines.forEach(function(line){
        flag = line.replace( /\s/g,',');
