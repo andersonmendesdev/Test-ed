@@ -9,8 +9,8 @@ fs.readFile('./lista_palavras_desordenada.txt', 'utf-8', function(err, data){
     lines.forEach(function(line){
       var  Words = line.toString();
        if(Words.substring(Words.length-1,Words.length) == 'a'){
-         count++;
-       }
+         count++;         
+       }      
 
     })
     console.log(count);
