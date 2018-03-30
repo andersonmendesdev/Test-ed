@@ -8,10 +8,8 @@ var stats;
       7     23    
 
 */
-//12>>7>>54>>23 = To 23???
+//12>>7>>54>>23 = To 23; 7????
 //12>>4 = To 4;
-//
-//var queue = [];
 //----------STRUCT----------
 class nodo {
   constructor() {
@@ -98,14 +96,14 @@ var searchTreeLTR = function(node) {
 //Search simple
 var searchTrue = function(treeNodo, value){
     if(!treeNodo.value || treeNodo.value === value){
-    valueGlobal = valueGlobal + treeNodo.value;
+    valueGlobal += treeNodo.value;
     return treeNodo.value;
   }
     if(value < treeNodo.value){
-    valueGlobal = valueGlobal + treeNodo.value;
+    valueGlobal += treeNodo.value;
     return searchTrue(treeNodo.left, value);
   }
-   valueGlobal = valueGlobal + treeNodo.value;
+   valueGlobal += treeNodo.value;
    return  searchTrue(treeNodo.right, value);
 }
 //------------------------------------

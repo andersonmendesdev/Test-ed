@@ -12,7 +12,7 @@ fs.readFile('./lista_palavras_desordenada.txt', 'utf-8', function(err, data){
     lines.forEach(function(line){
        var Words = line.toString();
        for(var i = 0;i < Words.length;i++){
-         countLetters = countLetters + (alphabet.indexOf(Words[i])); //posição inicial do alfabeto sendo 0; 21867
+         countLetters += (alphabet.indexOf(Words[i])); //posição inicial do alfabeto sendo 0; 21867
          //countLetters = countLetters + (alphabet.indexOf(Words[i])+1); //posição incial do alfabeto sendo 1; 21947
         }
        if(countLetters%5 == 0){
