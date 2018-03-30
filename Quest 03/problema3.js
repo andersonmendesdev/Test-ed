@@ -1,6 +1,11 @@
 var fs = require('fs');
 var valueGlobal = 0;
 var stats;
+//Rules route;
+//
+//12>>7>>54>>23 = To 23???
+//12>>4 = To 4;
+//
 //var queue = [];
 //----------STRUCT----------
 class nodo {
