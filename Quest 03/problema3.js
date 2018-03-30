@@ -3,6 +3,11 @@ var valueGlobal = 0;
 var stats;
 //Rules route;
 //
+/*         12
+        4     54
+      7     23    
+
+*/
 //12>>7>>54>>23 = To 23???
 //12>>4 = To 4;
 //
