@@ -3,7 +3,8 @@ var math = require('mathjs');
 var ListEdges= [];
 var ListAux = [];
 var ListFile = [];
-var ListNumbers = [];
+var ListNumbersOne = [];
+var ListNumbersTwo = [];
 //var matrixAdjacency = math.matrix();
 //// NOTE: Questao incompleta. Se tiver mais tempo termino:
 //-------------------------------------------------------
@@ -26,19 +27,19 @@ fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
        aux = flag.toString(flag);
        for(i=0; i<aux.length ;i+=2){
         ListAux.push(parseInt(aux.substring(i,i+2)));
-        ListNumbers.push(parseInt(aux.substring(i,i+2)));
+        ListNumbersOne.push(parseInt(aux.substring(i,i+2)));
+        ListNumbersTwo.push(parseInt(aux.substring(i,i+2)));
       }
       ListFile.push(ListAux);
       ListAux = [];
             
     })
     console.log(ListFile);
-    console.log(ListNumbers);
-    //var value = ListFile.shift();
-   // console.log(value.shift());
-    //var value02 = ListFile.shift();
-    //console.log(value02.length);
-    //console.log(value02.shift());
-    //console.log(value02.shift());
-    //console.log(value+value02);
+    console.log(ListNumbersOne);
+    console.log('\n',ListNumbersTwo);
+    var control = 0;
+    while(control !== 100){
+
+    }
+
 })
