@@ -1,10 +1,8 @@
 var fs = require('fs');
-var ListAux = [];
-var ListFile = [];
+var ListFile = [];//list global
 //// NOTE: É uma pegadinha?
 ///
 //-------------------------------------------------------
-//search list edges;
 
 init();// inicizaliar
 
@@ -18,6 +16,7 @@ function init(){
 
 function rdfile(){
   try {  
+        var ListAux = [];
         var data = fs.readFileSync('./triangulo.txt', 'utf8');
         var lines = data.split(/\r?\n/);
         lines.forEach(function(line){
