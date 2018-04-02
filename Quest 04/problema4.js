@@ -7,10 +7,10 @@ var ListFile = [];//list global
 init();// inicizaliar
 
 function init(){
-  var list = [];
+  var file = [];
   var listGrp = [];
-  list = rdfile();
-  listGrp = FormGrp(list);
+  file = rdfile();
+  listGrp = FormGrp(file);
   moveArray(listGrp);
 }
 
