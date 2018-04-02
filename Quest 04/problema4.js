@@ -94,14 +94,3 @@ function moveArray(ListArray){
   }
   console.log('Valor triangulo ',soma);
 }
-
-function positionVector(ListArr,value,level){
-  var auxiliar = [];
-  for(var i=0;i<ListArr.length;i++){
-    auxiliar = ListArr[i].slice();
-    if(auxiliar[0] === value & auxiliar[2]=== level)
-    {
-      return i;
-    }
-  }
-}
