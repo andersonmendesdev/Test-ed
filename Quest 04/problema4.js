@@ -1,6 +1,5 @@
 var fs = require('fs');
 var math = require('mathjs');
-var ListEdges= [];
 var ListAux = [];
 var ListFile = [];
 //// NOTE: É uma pegadinha?
@@ -8,7 +7,7 @@ var ListFile = [];
 //-------------------------------------------------------
 //search list edges;
 
-fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
+fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
   if(err){
     console.log("Error:",err);
     return;
@@ -52,14 +51,49 @@ function FormGrp(ListComp) {
         count++;
         Control--;
   }
-  console.log(graph);
-  console.log(graph.length);
-  //console.log(graph[positionVector(graph,52,2)]);
+  moveArray(graph);
 }
+
+function positionVector(ListArr,value,level){
+  var auxiliar = [];
+  for(var i=0;i<ListArr.length;i++){
+    auxiliar = ListArr[i].slice();
+    if(auxiliar[0] === value & auxiliar[2]=== level)
+    {
+      return i;
+    }
+  }
+}
+
 function moveArray(ListArray){
-  var valueAuxiliar;
+  var ListTotal = [];
   var vectorOne = [];
   var vectorTwo = [];
+  var control = ListFile.length - 1;
+  var indice = 0;
+  var soma = 0;
+  while(control != 0){
+        vectorOne = ListArray[indice].slice();
+        vectorTwo = ListArray[indice+1].slice();
+
+        if(vectorOne[1] > vectorTwo[1]){
+           ListTotal.push([vectorOne[0],vectorOne[1]]);
+           indice = positionVector(ListArray,vectorOne[1],(vectorOne[2]+1));
+        }
+        else {
+          ListTotal.push([vectorTwo[0],vectorTwo[1]]);
+          indice = positionVector(ListArray,vectorTwo[1],(vectorTwo[2]+1));
+        }
+        control--;
+  }
+  var cont = ListTotal[0].slice();
+  soma += cont[0];
+  soma += cont[1];
+  for(var b=1;b<ListTotal.length;b++){
+      cont = ListTotal[b].slice();
+    soma += cont[1];
+  }
+  console.log(soma);
 
 }
 
@@ -69,7 +103,6 @@ function positionVector(ListArr,value,level){
     auxiliar = ListArr[i].slice();
     if(auxiliar[0] === value & auxiliar[2]=== level)
     {
-      console.log(i);
       return i;
     }
   }
