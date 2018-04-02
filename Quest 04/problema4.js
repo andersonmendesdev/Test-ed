@@ -93,8 +93,7 @@ function moveArray(ListArray){
       cont = ListTotal[b].slice();
     soma += cont[1];
   }
-  console.log(soma);
-
+  console.log('Valor triangulo ',soma);
 }
 
 function positionVector(ListArr,value,level){
