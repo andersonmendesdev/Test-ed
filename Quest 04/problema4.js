@@ -70,26 +70,25 @@ function moveArray(ListArray){
   var control = ListFile.length - 1;
   var indice = 0;
   var soma = 0;
+  vectorOne = ListArray[indice].slice();
+  ListMax.push(vectorOne[0]);
   while(control != 0){
         vectorOne = ListArray[indice].slice();
         vectorTwo = ListArray[indice+1].slice();
 
         if(vectorOne[1] > vectorTwo[1]){
-           ListMax.push([vectorOne[0],vectorOne[1]]);
+           ListMax.push(vectorOne[1]);
            indice = positionVector(ListArray,vectorOne[1],(vectorOne[2]+1));
         }
         else {
-          ListMax.push([vectorTwo[0],vectorTwo[1]]);
+          ListMax.push(vectorTwo[1]);
           indice = positionVector(ListArray,vectorTwo[1],(vectorTwo[2]+1));
         }
         control--;
   }
-  var cont = ListMax[0].slice();
-  soma += cont[0];
-  soma += cont[1];
-  for(var b=1;b<ListMax.length;b++){
-      cont = ListMax[b].slice();
-    soma += cont[1];
+  //console.log(ListMax);
+  for(var b=0;b<ListMax.length;b++){
+      soma += ListMax[b];
   }
   console.log('Valor triangulo ',soma);
 }
