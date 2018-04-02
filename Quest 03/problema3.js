@@ -1,6 +1,5 @@
 var fs = require('fs');
 var valueGlobal = 0;
-var stats;
 //var treeNodo = new nodo();
 //const treeNodo = {}
 //Rules route;
