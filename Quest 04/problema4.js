@@ -3,7 +3,8 @@ var math = require('mathjs');
 var ListEdges= [];
 var ListAux = [];
 var ListFile = [];
-//// NOTE: Questao incompleta. Se tiver mais tempo termino:
+//// NOTE: É uma pegadinha?
+///
 //-------------------------------------------------------
 //search list edges;
 
@@ -22,16 +23,44 @@ fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
       ListFile.push(ListAux);
       ListAux = [];
     })
-    FormGrp(ListFile);
+    //FormGrp(ListFile);
+    Graphlevel(ListFile);
 })
 
+function  Graphlevel(ListLevel){
+  var levellist = [];
+  var listaux = [];
+  var control = ListLevel.length;
+  var indice = 0;
+  var auxiliar;
+  var listauxiliar = [];
+  var total = 0;
+  while(control != 0){
+    listauxiliar = ListLevel[indice];
+    auxiliar = listauxiliar[0];
+    for(var i=0 ; i<listauxiliar.length;i++){
+      if(listauxiliar[i] > auxiliar){
+        auxiliar = listauxiliar[i];
+      }
+    }
+    levellist.push(auxiliar);
+    indice++
+    control--
+  }
+  console.log('\n',ListLevel[indice-1]);
+  for(var k=0;k<levellist.length;k++){
+    total += levellist[k];
+  }
+  console.log('Valor do triangulo '+ total);
+}
+
+/*
 function FormGrp(ListComp) {
     var ListOne = [];
     var ListTwo = [];
     var count = 0;
     var Control;
     var graph = [];
-    //var ListComp = [[59],[73,41],[52,40,9],[26,53,6,34],[10,51,87,86,81]];
 
     Control = ListComp.length;
     //console.log(ListComp);
@@ -53,16 +82,4 @@ function FormGrp(ListComp) {
     }
         //console.log('\n',graph);
 }
-
-function searchGrp(){
-var total = 0;
-var control = 0;
-var Listarest = [[59,73],[59,41],[73,52],[73,40],[41,40],[41,9],[52,26],[52,53],[40,53],[40,6],[9,6],[9,34]];
-var Listfinigsh = [26,53,6,34];
-
-      while(control != 0){
-
-
-
-      }
-}
+*/
