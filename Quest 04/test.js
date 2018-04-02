@@ -27,3 +27,29 @@ function inicializar(){
     list = rdfile();
     console.log(list);
 }
+
+
+
+function rdFile(){
+    //fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
+      fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
+        if(err){
+         console.log("Error:",err);
+         return;
+       }
+         var lines = data.split(/\r?\n/);
+         lines.forEach(function(line){
+            flag = line.replace( /\s/g,'');
+             aux = flag.toString(flag);
+            for(var i=0; i<aux.length ;i+=2){
+              ListAux.push(parseInt(aux.substring(i,i+2)));
+           }
+           ListFile.push(ListAux);
+            ListAux = [];
+         })
+    
+        //FormGrp(ListFile);
+     })
+     return ListFile;
+    
+    }
