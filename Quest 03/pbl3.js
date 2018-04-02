@@ -1,8 +1,5 @@
 var fs = require('fs');
 var valueGlobal = 0;
-var stats;
-//var treeNodo = new nodo();
-//const treeNodo = {}
 //Rules route;
 //
 /*         12
@@ -13,7 +10,8 @@ var stats;
 //12>>7>>54>>23 = To 23; 7????
 //12>>4 = To 4;
 //----------STRUCT----------
-class TreeN {
+
+class nodo {
     constructor() {
       this.left = null;
       this.right = null;
@@ -26,23 +24,8 @@ class TreeN {
     }
 }
 
-function insertNode(tree, value){
-    if(tree.value){
-        if(value>tree.value){
-            insertNode(tree.right, value)
-        }
-        else{
-            insertNode(tree.left, value)
-        }
-    }else{
-        tree.value = value;
-        tree.right = {};
-        tree.left = {};
-    }
-}
-
 //----------INSERT--------------------------------------
-function insertNodeClass(treeNodo, value) {
+var insertNode = function(treeNodo, value) {
   if(!treeNodo.hasOwnProperty('value')){
     return treeNodo.setValue(value);
   }
@@ -50,7 +33,7 @@ function insertNodeClass(treeNodo, value) {
     while (true) {
       if (value <= treeNodo.value) {
         if(!treeNodo.left){
-          treeNodo.left = new TreeN();
+          treeNodo.left = new nodo();
           return treeNodo.left.setValue(value);
         }
         else {
@@ -59,18 +42,20 @@ function insertNodeClass(treeNodo, value) {
       }
       else {
         if(!treeNodo.right){
-          treeNodo.right = new TreeN();
+          treeNodo.right = new nodo();
           return treeNodo.right.setValue(value);
         }
         else {
           treeNodo = treeNodo.right;
         }
       }
+
     }
   }
+
 }
 //in order
-function inOrder(treeNodo){
+var inOrder = function(treeNodo){
   if(treeNodo){
     inOrder(treeNodo.left);
     console.log(treeNodo.getValue());
@@ -78,7 +63,7 @@ function inOrder(treeNodo){
   }
 }
 //pre order
-function preOrder(treeNodo) {
+var preOrder = function(treeNodo) {
   if(treeNodo){
     console.log(treeNodo.getValue());
     preOrder(treeNodo.left);
@@ -86,7 +71,7 @@ function preOrder(treeNodo) {
   }
 }
 //pos order
-function posOrder(treeNodo) {
+var posOrder = function(treeNodo) {
   if(treeNodo){
     posOrder(treeNodo.left);
     posOrder(treeNodo.right);
@@ -95,7 +80,7 @@ function posOrder(treeNodo) {
   }
 }
 
-function searchTreeLTR(node) {
+var searchTreeLTR = function(node) {
     var queue = [node];
     var result = [];
     while (node = queue.shift()) {
@@ -107,19 +92,20 @@ function searchTreeLTR(node) {
         console.log(node.right);
     }
     return result;
-}
+};
 
-function searchTrue(treeNode, value){
-    if(!treeNode.value || treeNode.value === value){
-    valueGlobal += treeNode.value;
-    return treeNode.value;
+//Search simple
+var searchTrue = function(treeNodo, value){
+    if(!treeNodo.value || treeNodo.value === value){
+    valueGlobal += treeNodo.value;
+    return treeNodo.value;
   }
-    if(value < treeNode.value){
-    valueGlobal += treeNode.value;
-    return searchTrue(treeNode.left, value);
+    if(value < treeNodo.value){
+    valueGlobal += treeNodo.value;
+    return searchTrue(treeNodo.left, value);
   }
-   valueGlobal += treeNode.value;
-   return  searchTrue(treeNode.right, value);
+   valueGlobal += treeNodo.value;
+   return  searchTrue(treeNodo.right, value);
 }
 //------------------------------------
 
@@ -131,23 +117,26 @@ function rdfile(){
           var data = fs.readFileSync('./numeros.txt', 'utf8');
           var lines = data.split(/\r?\n/);
             lines.forEach(function(line){
+              //var number = parseInt(line);
               ListAux.push(parseInt(line));
+              //insertNode(treeNodo, number);
             })
           return ListAux;   
         } catch(e) {
             console.log('Error:', e.stack);
         }
-  }
+}
 
-  init();
-  function init(){
-      var ListTree = [];
-      const treeNode = new TreeN();
-      ListTree = rdfile();
-      for(var i=0;i<ListTree.length;i++){
-          insertNodeClass(treeNode,ListTree[i]);
-      }
-      
-      searchTrue(treeNode,83099);
-      console.log('soma da rota ',valueGlobal);
-  }
+init();
+function init(){
+    var ListTree = [];
+    //const treeNode = new TreeN();
+    var treeNodo = new nodo();
+    ListTree = rdfile();
+    for(var i=0;i<ListTree.length;i++){
+        insertNode(treeNodo,ListTree[i]);
+    }
+    //console.log(treeNodo);
+    searchTrue(treeNodo,83099);
+    console.log('soma da rota',valueGlobal);
+}
