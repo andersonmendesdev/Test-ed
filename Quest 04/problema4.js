@@ -8,7 +8,7 @@ var ListFile = [];
 //-------------------------------------------------------
 //search list edges;
 
-fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
+fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
   if(err){
     console.log("Error:",err);
     return;
@@ -23,32 +23,40 @@ fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
       ListFile.push(ListAux);
       ListAux = [];
     })
-    //FormGrp(ListFile);
-    Triangulevel(ListFile);
+
+    FormGrp(ListFile);
 })
 
-function  Graphlevel(ListLevel){
-  var levellist = [];
-  var listaux = [];
-  var control = ListLevel.length;
-  var indice = 0;
-  var auxiliar;
-  var listauxiliar = [];
-  var total = 0;
-  while(control != 0){
-    listauxiliar = ListLevel[indice];
-    auxiliar = listauxiliar[0];
-    for(var i=0 ; i<listauxiliar.length;i++){
-      if(listauxiliar[i] > auxiliar){
-        auxiliar = listauxiliar[i];
-      }
-    }
-    levellist.push(auxiliar);
-    indice++
-    control--
+function FormGrp(ListComp) {
+  var ListOne = [];
+  var ListTwo = [];
+  var count = 0;
+  var Control;
+  var graph = [];
+  var level = 0;
+  Control = ListComp.length;
+
+  while(Control != 1){
+        ListOne = ListComp[count].slice();
+        ListTwo = ListComp[count+1].slice();
+        for(var i=0; i<ListOne.length; i++){
+              for(var j=0; j<ListTwo.length; j++){
+                if(j === 2){
+                    ListTwo.shift();
+                    break;
+                  }
+                  graph.push([ListOne[i],ListTwo[j],level]);
+              }
+        }
+        level++
+        count++;
+        Control--;
   }
-  for(var k=0;k<levellist.length;k++){
-    total += levellist[k];
-  }
-  console.log('Valor do triangulo '+ total); // Não é esse o valor com certeza, mas também nao há como checar as rotas;
+  console.log(graph);
+  console.log(graph.length);
+}
+
+function moveArray(ListArray){
+  var valueAuxiliar;
+
 }
