@@ -6,6 +6,8 @@ var ListFile = [];
 //-------------------------------------------------------
 //search list edges;
 
+
+//fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
 fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
   if(err){
     console.log("Error:",err);
