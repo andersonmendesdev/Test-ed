@@ -26,19 +26,6 @@ class TreeN {
     }
 }
 
-init();
-function init(){
-    var ListTree = [];
-    const treeNode = new TreeN();
-    ListTree = rdfile();
-    for(var i=0;i<ListTree.length;i++){
-        insertNodeClass(treeNode,ListTree[i]);
-    }
-    console.log(treeNode);
-    searchTrue(treeNode,83099);
-    console.log('soma da rota ',valueGlobal);
-}
-
 function insertNode(tree, value){
     if(tree.value){
         if(value>tree.value){
@@ -120,9 +107,8 @@ function searchTreeLTR(node) {
         console.log(node.right);
     }
     return result;
-};
+}
 
-//Search simple
 function searchTrue(treeNode, value){
     if(!treeNode.value || treeNode.value === value){
     valueGlobal += treeNode.value;
@@ -142,30 +128,26 @@ function searchTrue(treeNode, value){
 function rdfile(){
     try {  
           var ListAux = [];
-          var data = fs.readFileSync('./numero.txt', 'utf8');
+          var data = fs.readFileSync('./numeros.txt', 'utf8');
           var lines = data.split(/\r?\n/);
             lines.forEach(function(line){
-              //var number = parseInt(line);
               ListAux.push(parseInt(line));
-              //insertNode(treeNodo, number);
             })
           return ListAux;   
         } catch(e) {
             console.log('Error:', e.stack);
         }
   }
-/*
-fs.readFile('./numeros.txt', 'utf-8', function(err, data){
-  if(err){
-    console.log("Error:",err);
-    return;
-  }
-    var lines = data.split(/\r?\n/);
-    lines.forEach(function(line){
-      var number = parseInt(line);
-      insertNode(treeNodo, number);
-    })
-    searchTrue(treeNodo,83099);
-    console.log(valueGlobal);
 
-})*/
+  init();
+  function init(){
+      var ListTree = [];
+      const treeNode = new TreeN();
+      ListTree = rdfile();
+      for(var i=0;i<ListTree.length;i++){
+          insertNodeClass(treeNode,ListTree[i]);
+      }
+      
+      searchTrue(treeNode,83099);
+      console.log('soma da rota ',valueGlobal);
+  }

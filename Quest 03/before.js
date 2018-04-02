@@ -1,5 +1,6 @@
 var fs = require('fs');
 var valueGlobal = 0;
+var stats;
 //Rules route;
 //
 /*         12
@@ -10,20 +11,18 @@ var valueGlobal = 0;
 //12>>7>>54>>23 = To 23; 7????
 //12>>4 = To 4;
 //----------STRUCT----------
-
 class nodo {
-    constructor() {
-      this.left = null;
-      this.right = null;
-    }
-    setValue(value){
-      this.value = value;
-    }
-    getValue() {
-      return this.value;
-    }
+  constructor() {
+    this.left = null;
+    this.right = null;
+  }
+  setValue(value){
+    this.value = value;
+  }
+  getValue() {
+    return this.value;
+  }
 }
-
 //----------INSERT--------------------------------------
 var insertNode = function(treeNodo, value) {
   if(!treeNodo.hasOwnProperty('value')){
@@ -111,32 +110,18 @@ var searchTrue = function(treeNodo, value){
 
 //-------------------------------
 
-function rdfile(){
-    try {  
-          var ListAux = [];
-          var data = fs.readFileSync('./numeros.txt', 'utf8');
-          var lines = data.split(/\r?\n/);
-            lines.forEach(function(line){
-              //var number = parseInt(line);
-              ListAux.push(parseInt(line));
-              //insertNode(treeNodo, number);
-            })
-          return ListAux;   
-        } catch(e) {
-            console.log('Error:', e.stack);
-        }
-}
-
-init();
-function init(){
-    var ListTree = [];
-    //const treeNode = new TreeN();
-    var treeNodo = new nodo();
-    ListTree = rdfile();
-    for(var i=0;i<ListTree.length;i++){
-        insertNode(treeNodo,ListTree[i]);
-    }
-    //console.log(treeNodo);
+var treeNodo = new nodo();
+fs.readFile('./numeros.txt', 'utf-8', function(err, data){
+  if(err){
+    console.log("Error:",err);
+    return;
+  }
+    var lines = data.split(/\r?\n/);
+    lines.forEach(function(line){
+      var number = parseInt(line);
+      insertNode(treeNodo, number);
+    })
     searchTrue(treeNodo,83099);
-    console.log('soma da rota',valueGlobal);
-}
+    console.log(valueGlobal);
+
+})
