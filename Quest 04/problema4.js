@@ -47,12 +47,12 @@ function FormGrp(ListComp) {
     var graph = [];
     //var ListComp = [[59],[73,41],[52,40,9],[26,53,6,34],[10,51,87,86,81]];
 
-    Control = 4;
+    Control = ListComp.length;
     console.log(ListComp);
 
-    while(Control != 0){
-          ListOne = ListComp[count];
-          ListTwo = ListComp[count+1];
+    while(Control != 1){
+          ListOne = ListComp[count].slice();
+          ListTwo = ListComp[count+1].slice();
           for(var i=0; i<ListOne.length; i++){
                 for(var j=0; j<ListTwo.length; j++){
                   if(j === 2){
@@ -65,17 +65,17 @@ function FormGrp(ListComp) {
           count++;
           Control--;
     }
-        console.log('\n',ListComp);
+        console.log('\n',graph);
 }
 
 function searchGrp(){
 var total = 0;
 var control = 0;
-var Listarest = [[59,73],[59,41],[73,52],[73,40],[41,40],[41,9],[52,26],[52,53],[40,53],[40,6],[9,6],[9,34];
+var Listarest = [[59,73],[59,41],[73,52],[73,40],[41,40],[41,9],[52,26],[52,53],[40,53],[40,6],[9,6],[9,34]];
 var Listfinigsh = [26,53,6,34];
 
       while(control != 0){
-          
+
 
 
       }
