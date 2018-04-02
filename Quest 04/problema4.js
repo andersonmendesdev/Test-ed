@@ -17,7 +17,7 @@ var ListFile = [];
 
 
 
-fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
+fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
   if(err){
     console.log("Error:",err);
     return;
@@ -48,7 +48,7 @@ function FormGrp(ListComp) {
     //var ListComp = [[59],[73,41],[52,40,9],[26,53,6,34],[10,51,87,86,81]];
 
     Control = ListComp.length;
-    console.log(ListComp);
+    //console.log(ListComp);
 
     while(Control != 1){
           ListOne = ListComp[count].slice();
