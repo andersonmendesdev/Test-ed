@@ -24,7 +24,7 @@ fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
       ListAux = [];
     })
     //FormGrp(ListFile);
-    Graphlevel(ListFile);
+    Triangulevel(ListFile);
 })
 
 function  Graphlevel(ListLevel){
@@ -50,5 +50,5 @@ function  Graphlevel(ListLevel){
   for(var k=0;k<levellist.length;k++){
     total += levellist[k];
   }
-  console.log('Valor do triangulo '+ total);
+  console.log('Valor do triangulo '+ total); // Não é esse o valor com certeza, mas também nao há como checar as rotas;
 }
