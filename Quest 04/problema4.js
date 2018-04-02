@@ -1,5 +1,4 @@
 var fs = require('fs');
-var math = require('mathjs');
 var ListAux = [];
 var ListFile = [];
 //// NOTE: É uma pegadinha?
@@ -66,7 +65,7 @@ function positionVector(ListArr,value,level){
 }
 
 function moveArray(ListArray){
-  var ListTotal = [];
+  var ListMax = [];
   var vectorOne = [];
   var vectorTwo = [];
   var control = ListFile.length - 1;
@@ -77,20 +76,20 @@ function moveArray(ListArray){
         vectorTwo = ListArray[indice+1].slice();
 
         if(vectorOne[1] > vectorTwo[1]){
-           ListTotal.push([vectorOne[0],vectorOne[1]]);
+           ListMax.push([vectorOne[0],vectorOne[1]]);
            indice = positionVector(ListArray,vectorOne[1],(vectorOne[2]+1));
         }
         else {
-          ListTotal.push([vectorTwo[0],vectorTwo[1]]);
+          ListMax.push([vectorTwo[0],vectorTwo[1]]);
           indice = positionVector(ListArray,vectorTwo[1],(vectorTwo[2]+1));
         }
         control--;
   }
-  var cont = ListTotal[0].slice();
+  var cont = ListMax[0].slice();
   soma += cont[0];
   soma += cont[1];
-  for(var b=1;b<ListTotal.length;b++){
-      cont = ListTotal[b].slice();
+  for(var b=1;b<ListMax.length;b++){
+      cont = ListMax[b].slice();
     soma += cont[1];
   }
   console.log('Valor triangulo ',soma);
