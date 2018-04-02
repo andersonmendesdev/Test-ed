@@ -25,22 +25,6 @@ class TreeN {
       return this.value;
     }
 }
-
-function insertNode(tree, value){
-    if(tree.value){
-        if(value>tree.value){
-            insertNode(tree.right, value)
-        }
-        else{
-            insertNode(tree.left, value)
-        }
-    }else{
-        tree.value = value;
-        tree.right = {};
-        tree.left = {};
-    }
-}
-
 //----------INSERT--------------------------------------
 function insertNodeClass(treeNodo, value) {
   if(!treeNodo.hasOwnProperty('value')){
