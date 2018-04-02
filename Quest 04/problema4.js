@@ -3,19 +3,9 @@ var math = require('mathjs');
 var ListEdges= [];
 var ListAux = [];
 var ListFile = [];
-//const ListComp;
-//var ListNumbersOne = [];
-//var ListNumbersTwo = [];
-//var matrixAdjacency = math.matrix();
 //// NOTE: Questao incompleta. Se tiver mais tempo termino:
 //-------------------------------------------------------
-//search matrixadjacency;
 //search list edges;
-
-
-
-
-
 
 fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
   if(err){
@@ -28,13 +18,9 @@ fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
        aux = flag.toString(flag);
        for(var i=0; i<aux.length ;i+=2){
         ListAux.push(parseInt(aux.substring(i,i+2)));
-        //ListNumbersOne.push(parseInt(aux.substring(i,i+2)));
-        //ListNumbersTwo.push(parseInt(aux.substring(i,i+2)));
       }
-      //console.log(ListAux);
       ListFile.push(ListAux);
       ListAux = [];
-
     })
     FormGrp(ListFile);
 })
@@ -65,7 +51,7 @@ function FormGrp(ListComp) {
           count++;
           Control--;
     }
-        console.log('\n',graph);
+        //console.log('\n',graph);
 }
 
 function searchGrp(){
