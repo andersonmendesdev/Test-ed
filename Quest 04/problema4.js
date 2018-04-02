@@ -86,7 +86,6 @@ function moveArray(ListArray){
         }
         control--;
   }
-  //console.log(ListMax);
   for(var b=0;b<ListMax.length;b++){
       soma += ListMax[b];
   }
