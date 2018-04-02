@@ -6,26 +6,36 @@ var ListFile = [];
 //-------------------------------------------------------
 //search list edges;
 
+init();
 
-//fs.readFile('./triangulos.txt', 'utf-8', function(err, data){
-fs.readFile('./triangulo.txt', 'utf-8', function(err, data){
-  if(err){
-    console.log("Error:",err);
-    return;
-  }
-    var lines = data.split(/\r?\n/);
-    lines.forEach(function(line){
-       flag = line.replace( /\s/g,'');
-       aux = flag.toString(flag);
-       for(var i=0; i<aux.length ;i+=2){
-        ListAux.push(parseInt(aux.substring(i,i+2)));
+function rdfile(){
+  try {  
+      var data = fs.readFileSync('./triangulo.txt', 'utf8');
+           var lines = data.split(/\r?\n/);
+           lines.forEach(function(line){
+           flag = line.replace( /\s/g,'');
+           aux = flag.toString(flag);
+            for(var i=0; i<aux.length ;i+=2){
+           ListAux.push(parseInt(aux.substring(i,i+2)));
+            }
+           ListFile.push(ListAux);
+           ListAux = [];
+       })
+       //console.log(ListFile);
+       return ListFile;   
+      } catch(e) {
+          console.log('Error:', e.stack);
       }
-      ListFile.push(ListAux);
-      ListAux = [];
-    })
+  }
+  
+  function init(){
+      var list = [];
+      var listGrp = [];
+      list = rdfile();
+      listGrp = FormGrp(list);
+      moveArray(listGrp);
+  }
 
-    FormGrp(ListFile);
-})
 
 function FormGrp(ListComp) {
   var ListOne = [];
@@ -52,18 +62,7 @@ function FormGrp(ListComp) {
         count++;
         Control--;
   }
-  moveArray(graph);
-}
-
-function positionVector(ListArr,value,level){
-  var auxiliar = [];
-  for(var i=0;i<ListArr.length;i++){
-    auxiliar = ListArr[i].slice();
-    if(auxiliar[0] === value & auxiliar[2]=== level)
-    {
-      return i;
-    }
-  }
+  return graph;
 }
 
 function moveArray(ListArray){
@@ -95,4 +94,15 @@ function moveArray(ListArray){
     soma += cont[1];
   }
   console.log('Valor triangulo ',soma);
+}
+
+function positionVector(ListArr,value,level){
+  var Arr = [];
+  for(var i=0;i<ListArr.length;i++){
+    Arr = ListArr[i].slice();
+    if(Arr[0] === value & Arr[2]=== level)
+    {
+      return i;
+    }
+  }
 }
