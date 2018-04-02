@@ -54,9 +54,23 @@ function FormGrp(ListComp) {
   }
   console.log(graph);
   console.log(graph.length);
+  //console.log(graph[positionVector(graph,52,2)]);
 }
-
 function moveArray(ListArray){
   var valueAuxiliar;
+  var vectorOne = [];
+  var vectorTwo = [];
 
+}
+
+function positionVector(ListArr,value,level){
+  var auxiliar = [];
+  for(var i=0;i<ListArr.length;i++){
+    auxiliar = ListArr[i].slice();
+    if(auxiliar[0] === value & auxiliar[2]=== level)
+    {
+      console.log(i);
+      return i;
+    }
+  }
 }
