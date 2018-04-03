@@ -5,7 +5,7 @@ function init(){
   
   console.log(read_file());
   // NOTE: O valor encontrado caso a posição inicial de 'a' seja 1 é 21947;
-  // NOTE: O valor ecntronado caso a posição inicial de 'a' seja 0 é 21867, Resposta do teste.
+  // NOTE: O valor encontrado caso a posição inicial de 'a' seja 0 é 21867, Resposta do teste.
 
 }
 function read_file(){
