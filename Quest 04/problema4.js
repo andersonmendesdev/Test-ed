@@ -34,7 +34,6 @@ function read_files(){
       }
 }
 
-
 function graphEdges(ListComp) {
   var ListOne = [];
   var ListTwo = [];
