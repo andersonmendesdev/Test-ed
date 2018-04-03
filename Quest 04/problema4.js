@@ -8,13 +8,13 @@ init();// inicizaliar
 
 function init(){
   var file = [];
-  var listGrp = [];
-  file = rdfile();
-  listGrp = FormGrp(file);
-  moveArray(listGrp);
+  var edgesgraph = [];
+  file = read_files();
+  edgesgraph = graphEdges(file);
+  verifyRoutes(edgesgraph);
 }
 
-function rdfile(){
+function read_files(){
   try {  
         var ListAux = [];
         var data = fs.readFileSync('./triangulo.txt', 'utf8');
@@ -35,7 +35,7 @@ function rdfile(){
 }
 
 
-function FormGrp(ListComp) {
+function graphEdges(ListComp) {
   var ListOne = [];
   var ListTwo = [];
   var count = 0;
@@ -48,13 +48,13 @@ function FormGrp(ListComp) {
         ListOne = ListComp[count].slice();
         ListTwo = ListComp[count+1].slice();
         for(var i=0; i<ListOne.length; i++){
-              for(var j=0; j<ListTwo.length; j++){
-                if(j === 2){
-                    ListTwo.shift();
-                    break;
-                  }
-                  graph.push([ListOne[i],ListTwo[j],level]);
-              }
+          for(var j=0; j<ListTwo.length; j++){
+            if(j === 2){
+                ListTwo.shift();
+                break;
+            }
+            graph.push([ListOne[i],ListTwo[j],level]);
+          }
         }
         level++
         count++;
@@ -63,7 +63,7 @@ function FormGrp(ListComp) {
   return graph;
 }
 
-function moveArray(ListArray){
+function verifyRoutes(ListArray){
   var ListMax = [];
   var vectorOne = [];
   var vectorTwo = [];
@@ -78,11 +78,11 @@ function moveArray(ListArray){
 
         if(vectorOne[1] > vectorTwo[1]){
            ListMax.push(vectorOne[1]);
-           indice = positionVector(ListArray,vectorOne[1],(vectorOne[2]+1));
+           indice = positionList(ListArray,vectorOne[1],(vectorOne[2]+1));
         }
         else {
           ListMax.push(vectorTwo[1]);
-          indice = positionVector(ListArray,vectorTwo[1],(vectorTwo[2]+1));
+          indice = positionList(ListArray,vectorTwo[1],(vectorTwo[2]+1));
         }
         control--;
   }
@@ -92,7 +92,7 @@ function moveArray(ListArray){
   console.log('Valor triangulo ',soma);
 }
 
-function positionVector(ListArr,value,level){
+function positionList(ListArr,value,level){
   var Arr = [];
   for(var i=0;i<ListArr.length;i++){
     Arr = ListArr[i].slice();
