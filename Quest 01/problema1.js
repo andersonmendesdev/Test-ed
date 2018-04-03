@@ -21,7 +21,6 @@ function read_file(){
 
       } catch(e) {
           console.log('Error:', e.stack);
-          return;
       }
 }
 
