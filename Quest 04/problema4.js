@@ -40,10 +40,9 @@ function createGraph(ListComp) {
   var ListOne = [];
   var ListTwo = [];
   var count = 0;
-  var Control;
   var graph = [];
   var level = 0;
-  Control = ListComp.length;
+  var Control = ListComp.length;
 
   while(Control != 1){
         ListOne = ListComp[count].slice();
