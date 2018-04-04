@@ -1,8 +1,5 @@
 var fs = require('fs');
-var ListFile = [];//list global
-//// NOTE: É uma pegadinha?
-///
-//-------------------------------------------------------
+var ListFile = [];
 
 init();// inicizaliar
 
