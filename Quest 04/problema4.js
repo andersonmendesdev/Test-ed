@@ -96,7 +96,7 @@ function positionEdges(ListArr,value,level){
   var Arr = [];
   for(var i=0;i<ListArr.length;i++){
     Arr = ListArr[i].slice();
-    if(Arr[0] === value & Arr[2]=== level){
+    if(Arr[0] == value && Arr[2]== level){
       return i;
     }
   }
