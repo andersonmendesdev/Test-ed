@@ -25,7 +25,7 @@ class TreeN {
     }
 }
 //----------INSERT--------------------------------------
-function insertNodeClass(treeNodo, value) {
+function insertNode(treeNodo, value) {
   if(!treeNodo.hasOwnProperty('value')){
     return treeNodo.setValue(value);
   }
@@ -128,7 +128,7 @@ function init(){
       const treeNode = new TreeN();
       ListTree = rdfile();
       for(var i=0;i<ListTree.length;i++){
-          insertNodeClass(treeNode,ListTree[i]);
+          insertNode(treeNode,ListTree[i]);
       }
       
       searchTrue(treeNode,83099);
