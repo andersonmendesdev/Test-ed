@@ -1,6 +1,7 @@
 var fs = require('fs');
 var ListFile = [];
 
+
 init();// inicizaliar
 
 function init(){
