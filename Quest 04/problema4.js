@@ -19,7 +19,7 @@ function read_files(){
         let data = fs.readFileSync('./triangulo.txt', 'utf8')
         //var data = fs.readFileSync('./triangulos.txt', 'utf8');
         let lines = data.split(/\r?\n/)
-        lines.forEach(function(line){
+        lines.forEach(line => {
             flag = line.replace( /\s/g,'')
             aux = flag.toString(flag)
             for(let i=0; i<aux.length ;i+=2){

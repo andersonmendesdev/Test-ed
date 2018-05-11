@@ -1,8 +1,6 @@
 const fs = require('fs')
 let valueGlobal = 0
-//var treeNodo = new nodo();
-//const treeNodo = {}
-//Rules route;
+//Rules route
 //
 /*         12
         4     54
@@ -18,7 +16,7 @@ class TreeN {
       this.right = null
     }
     setValue(value){
-      this.value = value;
+      this.value = value
     }
     getValue() {
       return this.value
@@ -34,7 +32,7 @@ function insertNode(treeNodo, value) {
       if (value <= treeNodo.value) {
         if(!treeNodo.left){
           treeNodo.left = new TreeN()
-          return treeNodo.left.setValue(value);
+          return treeNodo.left.setValue(value)
         }
         else {
           treeNodo = treeNodo.left
@@ -43,7 +41,7 @@ function insertNode(treeNodo, value) {
       else {
         if(!treeNodo.right){
           treeNodo.right = new TreeN()
-          return treeNodo.right.setValue(value);
+          return treeNodo.right.setValue(value)
         }
         else {
           treeNodo = treeNodo.right
@@ -56,14 +54,14 @@ function insertNode(treeNodo, value) {
 function inOrder(treeNodo){
   if(treeNodo){
     inOrder(treeNodo.left)
-    console.log(treeNodo.getValue());
+    console.log(treeNodo.getValue())
     inOrder(treeNodo.right)
   }
 }
 //pre order
 function preOrder(treeNodo) {
   if(treeNodo){
-    console.log(treeNodo.getValue());
+    console.log(treeNodo.getValue())
     preOrder(treeNodo.left)
     preOrder(treeNodo.right)
   }
@@ -113,10 +111,10 @@ function rdfile(){
           let ListAux = []
           let data = fs.readFileSync('./numeros.txt', 'utf8')
           let lines = data.split(/\r?\n/)
-            lines.forEach(function(line){
+            lines.forEach(line => {
               ListAux.push(parseInt(line))
             })
-          return ListAux;   
+          return ListAux  
         } catch(e) {
             console.log('Error:', e.stack)
         }
