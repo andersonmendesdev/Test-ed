@@ -1,25 +1,15 @@
 const fs = require('fs')
+const data = fs.readFileSync('./lista_palavras_desordenada.txt', 'utf8').split(/\r?\n/)
 
-init()
-function init(){
-  
-  console.log(read_file())
-
+const LerLinha = (lines) =>{
+    let count = 0
+    let words
+    lines.forEach( line => {
+      Words = line.toString()
+      if(Words.substring(Words.length-1,Words.length) == 'a'){
+          count++       
+      }    
+    })
+    return count        
 }
-function read_file(){
-  try {  
-        let data = fs.readFileSync('./lista_palavras_desordenada.txt', 'utf8')
-        let lines = data.split(/\r?\n/)
-        let count = 0
-        lines.forEach( line => {
-          let  Words = line.toString()
-          if(Words.substring(Words.length-1,Words.length) == 'a'){
-              count++       
-          }    
-        })
-        return count
-
-      } catch(e) {
-          console.log('Error:', e.stack)
-      }
-}
+console.log(LerLinha(data))
