@@ -50,55 +50,17 @@ function insertNode(treeNodo, value) {
     }
   }
 }
-//in order
-function inOrder(treeNodo){
-  if(treeNodo){
-    inOrder(treeNodo.left)
-    console.log(treeNodo.getValue())
-    inOrder(treeNodo.right)
-  }
-}
-//pre order
-function preOrder(treeNodo) {
-  if(treeNodo){
-    console.log(treeNodo.getValue())
-    preOrder(treeNodo.left)
-    preOrder(treeNodo.right)
-  }
-}
-//pos order
-function posOrder(treeNodo) {
-  if(treeNodo){
-    posOrder(treeNodo.left)
-    posOrder(treeNodo.right)
-    console.log(treeNodo.getValue())
 
-  }
-}
-
-function searchTreeLTR(node) {
-    let queue = [node]
-    let result = []
-    while (node = queue.shift()) {
-        result.push(node.value)
-        console.log(node.value)
-        node.left && queue.push(node.left)
-        console.log(node.left)
-        node.right && queue.push(node.right)
-        console.log(node.right)
-    }
-    return result
-}
 
 function searchTrue(treeNode, value){
     if(!treeNode.value || treeNode.value === value){
-    valueGlobal += treeNode.value
-    return treeNode.value
-  }
+      valueGlobal += treeNode.value
+      return treeNode.value
+    }
     if(value < treeNode.value){
-    valueGlobal += treeNode.value
-    return searchTrue(treeNode.left, value)
-  }
+      valueGlobal += treeNode.value
+      return searchTrue(treeNode.left, value)
+    } 
    valueGlobal += treeNode.value
    return  searchTrue(treeNode.right, value)
 }
@@ -108,12 +70,11 @@ function searchTrue(treeNode, value){
 
 function rdfile(){
     try {  
-          let ListAux = []
-          let data = fs.readFileSync('./numeros.txt', 'utf8')
-          let lines = data.split(/\r?\n/)
-            lines.forEach(line => {
-              ListAux.push(parseInt(line))
-            })
+          const ListAux = []
+          const data = fs.readFileSync('./numeros.txt', 'utf8').split(/\r?\n/)
+          data.forEach(line => {
+            ListAux.push(parseInt(line))
+          })
           return ListAux  
         } catch(e) {
             console.log('Error:', e.stack)
@@ -122,9 +83,8 @@ function rdfile(){
 
 init()
 function init(){
-      let ListTree = []
-      const treeNode = new TreeN()
-      ListTree = rdfile()
+      const ListTree = rdfile() 
+      const treeNode = new TreeN()       
       for(let i=0;i<ListTree.length;i++){
           insertNode(treeNode,ListTree[i])
       }
