@@ -5,21 +5,16 @@ let ListFile = []
 init()// inicizaliar
 
 function init(){
-  let file = []
-  let GraphEgdes = []
-  file = read_files()
-  GraphEgdes = createGraph(file)
+  const file = read_files()
+  const GraphEgdes = createGraph(file) 
   verifyEdges(GraphEgdes)
-  //verifyEdges(createGraph(read_files()));
 }
 
 function read_files(){
   try {  
         let ListAux = []
-        let data = fs.readFileSync('./triangulo.txt', 'utf8')
-        //var data = fs.readFileSync('./triangulos.txt', 'utf8');
-        let lines = data.split(/\r?\n/)
-        lines.forEach(line => {
+        const data = fs.readFileSync('./triangulo.txt', 'utf8').split(/\r?\n/)
+        data.forEach(line => {
             flag = line.replace( /\s/g,'')
             aux = flag.toString(flag)
             for(let i=0; i<aux.length ;i+=2){
