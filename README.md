@@ -50,11 +50,14 @@ Essa somatória tem o valor:
 
 ## Problema 4 - Desafio: 
 (Tempo médio: 120 minutos, Pontos: 500)
-Começando do topo do triangulo abaixo e movendo para números adjacentes nas linhas de baixo somando os números, a maior soma possível é 23.
+#### Começando do topo do triangulo abaixo e movendo para números adjacentes nas linhas de baixo somando os números, a maior soma possível é 23.
 
 3
-74
-246
+
+7 4
+
+2 4 6
+
 8 5 9 3
 
 
@@ -63,7 +66,7 @@ Começando do topo do triangulo abaixo e movendo para números adjacentes nas li
 Qualquer outro caminho resultará em uma soma menor, exemplo: 3 + 4 + 6 + 9 = 22.
 **O arquivo “triangulo.txt” contem um triangulo com 100 linhas. Encontre a maior soma deste triangulo.**
 
-*OBSERVAÇÃO: Não é possível tentar somar todas as rotas possíveis pois existem 299 rotas possíveis. Se você pudesse chegar um trilhão (1012) rotas por segundo, levaria mais de 20 bilhões de anos para checar todas. Existe um algoritmo eficiente para resolver.*
+*OBSERVAÇÃO: Não é possível tentar somar todas as rotas possíveis pois existem 2^99 rotas possíveis. Se você pudesse chegar um trilhão (1012) rotas por segundo, levaria mais de 20 bilhões de anos para checar todas. Existe um algoritmo eficiente para resolver.*
 
 (a)	2.256
 (b)	5.480
